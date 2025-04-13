@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply for a Job - Orb Nexus</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="Orb Nexus Logo" class="logo-img">
+            <h1>Apply for a Job</h1>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+            <a href="/gallery">Gallery</a>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>Job Application Form</h2>
+        <form action="/careers/apply-job" method="POST" enctype="multipart/form-data">
+            <label for="partyName">Party Name:</label>
+            <input type="text" id="partyName" name="partyName" required>
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName">
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="resume">Upload Resume (Optional - PDF Only):</label>
+            <input type="file" id="resume" name="resume" accept=".pdf">
+
+            <p class="notice">Note: By submitting this form, you agree to our terms and conditions.</p>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Orb Nexus - All Rights Reserved</p>
+    </footer>
+</body>
+</html>

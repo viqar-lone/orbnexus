@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Services - Orb Nexus</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/services">Our Services</a>
+        <a href="/contact">Contact Us</a>
+    </nav>
+
+    <h1>Our Services</h1>
+    <ul>
+        <% services.forEach(service => { %>
+            <li><%= service %></li>
+        <% }) %>
+    </ul>
+
+    <a href="/" class="back-btn">Back to Home</a>
+</body>
+</html>

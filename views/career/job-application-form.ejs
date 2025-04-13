@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Business</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/images/backgroundemployee.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+        select[multiple] {
+            height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-submit:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+        /* Preview Styles */
+        .preview-container {
+            margin-top: 10px;
+        }
+
+        .preview-container a {
+            display: block;
+            color: #00f;
+            text-decoration: underline;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .modal-buttons {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Register Your Business</h2>
+    <form id="businessForm" action="/careers/submit-business" method="POST" enctype="multipart/form-data">
+        
+       
+        <label for="Name"> Name *</label>
+        <input type="text" id="partyName" name="partyName" required>
+
+      
+
+       
+        </select>
+
+        <label for="contactNumber">Contact Number *</label>
+        <input type="text" id="contactNumber" name="contactNumber" required>
+
+        <label for="email">Email ID *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="images">Upload Images (Max 20)</label>
+        <input type="file" id="images" name="images" accept="image/*" multiple>
+        <div class="preview-container" id="imagePreview"></div>
+
+        <label for="videos">Upload Videos (Max 10)</label>
+        <input type="file" id="videos" name="videos" accept="video/*" multiple>
+        <div class="preview-container" id="videoPreview"></div>
+
+        <label for="resume">Upload Resume (Optional, .pdf only)</label>
+        <input type="file" id="resume" name="resume" accept=".pdf">
+        <div class="preview-container" id="resumePreview"></div>
+
+        <div class="terms-container">
+            <input type="checkbox" id="termsCheckbox" onclick="showTermsModal()">
+            <label for="termsCheckbox">I agree to the <span style="color: #00f; cursor: pointer;" onclick="showTermsModal()">Terms and Conditions</span></label>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn" disabled>Submit Application</button>
+    </form>
+</div>
+
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <h3>Terms and Conditions</h3>
+        <p>
+            1. All provided information must be accurate.<br>
+            2. The company has the right to verify details before approval.<br>
+            3. Any false information may lead to disqualification.<br>
+            4. Uploaded images and videos must comply with guidelines.<br>
+            5. The company holds the right to reject any application.<br>
+        </p>
+        <div class="modal-buttons">
+            <button class="accept-btn" onclick="acceptTerms()">Accept</button>
+            <button class="decline-btn" onclick="declineTerms()">Decline</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTermsModal() {
+        document.getElementById("termsModal").style.display = "flex";
+    }
+
+    function acceptTerms() {
+        document.getElementById("termsModal").style.display = "none";
+        document.getElementById("termsCheckbox").checked = true;
+        document.getElementById("submitBtn").disabled = false;
+    }
+
+    function declineTerms() {
+        document.getElementById("termsModal").style.display = "none";
+        document.getElementById("termsCheckbox").checked = false;
+        document.getElementById("submitBtn").disabled = true;
+    }
+
+    function previewFiles(input, previewContainer) {
+        previewContainer.innerHTML = "";
+        Array.from(input.files).forEach(file => {
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(file);
+            link.target = "_blank";
+            link.textContent = file.name;
+            previewContainer.appendChild(link);
+        });
+    }
+
+    document.getElementById("images").addEventListener("change", function() {
+        previewFiles(this, document.getElementById("imagePreview"));
+    });
+    
+    document.getElementById("videos").addEventListener("change", function() {
+        previewFiles(this, document.getElementById("videoPreview"));
+    });
+
+    document.getElementById("resume").addEventListener("change", function() {
+        previewFiles(this, document.getElementById("resumePreview"));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orb Nexus - Event Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .nav-dropdown { position: relative; display: inline-block; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(5px); border-radius: 5px; min-width: 200px; z-index: 1000; padding: 10px 0; }
+        .dropdown-menu a { display: block; padding: 10px 15px; color: #ffffff; text-decoration: none; font-size: 0.9em; transition: background 0.3s ease; }
+        .dropdown-menu a:hover { background: rgba(255, 255, 255, 0.1); }
+        .nav-dropdown.active .dropdown-menu { display: block; }
+
+        /* Slideshow container */
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .banner-img.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: rgba(0, 0, 0, 0.4);">
+        <div class="logo">
+            <img src="/images/logo.png" alt="Orb Nexus Logo" class="logo-img">
+            <span>Orb Nexus</span>
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            
+            <!-- New My Profile Dropdown -->
+            <div class="nav-dropdown">
+                <a href="/profile" class="dropdown-toggle">My Profile ▼</a>
+                <div class="dropdown-menu">
+                    <a href="/profile">My Profile</a>
+                    <a href="/bookings">My Bookings</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+
+            <!-- Navigation Dropdowns Start -->
+            <div class="nav-dropdown">
+                <a href="/about" class="dropdown-toggle">About us ▼</a>
+                <div class="dropdown-menu">
+                    <a href="/history">Our History</a>
+                    <a href="/team">Our Team</a>
+                    <a href="/values">Our Values</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <a href="/services" class="dropdown-toggle">Services ▼</a>
+                <div class="dropdown-menu">
+                    <a href="/services/full-wedding-package">Full Wedding Package</a>
+                    <a href="/wedding-planner">Wedding Planner</a>
+                    <a href="/wedding-photography">Wedding Photography & Videography</a>
+                    <a href="/event-decoration">Event Decoration</a>
+                    <a href="/catering-services">Catering Services</a>
+                    <a href="/destination-weddings">Destination Weddings</a>
+                    <a href="/parties">Parties</a>
+                    <a href="/meeting-arrangement">Meeting Arrangement</a>
+                    <a href="/book-my-trips">Book My Trips</a>
+                    <a href="/vip-arrangement">VIP Guests Arrangement</a>
+                    <a href="/tent-house">Tent House</a>
+                    <a href="/construction">Construction</a>
+                    <a href="/interior-designer">Interior Designer</a>
+                    <a href="/modern-furniture">Modern Furniture</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <a href="/gallery" class="dropdown-toggle">Gallery ▼</a>
+                <div class="dropdown-menu">
+                    <a href="/photos">Photo Gallery</a>
+                    <a href="/videos">Video Gallery</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <a href="/contact" class="dropdown-toggle">Contact Us ▼</a>
+                <div class="dropdown-menu">
+                    <a href="/locations">Our Locations</a>
+                    <a href="/emergency">Emergency Contact</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <a href="/join" class="dropdown-toggle">Join our Team ▼</a>
+                <div class="dropdown-menu">
+                    <a href="/careers">Careers</a>
+                    <a href="/internships">Internships</a>
+                </div>
+            </div>
+            <!-- Navigation Dropdowns End -->
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="banner-container slideshow">
+            <img src="/images/banner1.jpg" class="banner-img active">
+            <img src="/images/banner2.jpg" class="banner-img">
+            <img src="/images/banner3.jpg" class="banner-img">
+            <div class="hero-text">
+                <h2>"Orb Nexus – Where Every Event Becomes a Cherished Memory."</h2>
+                <h1>Let's craft a<br> a beautiful memory<br> we create you enjoy</h1>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <img src="/images/instagram.png" alt="Instagram" class="icon">
+            <img src="/images/facebook.png" alt="Facebook" class="icon">
+            <img src="/images/youtube.png" alt="YouTube" class="icon">
+        </div>
+
+        <div class="contact-btn-container">
+            <a href="/contact" class="contact-btn">Contact Us</a>
+        </div>
+
+        <div class="whatsapp-icon">
+            <img src="/images/whatsapp.png" alt="WhatsApp" class="whatsapp-img">
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.nav-dropdown');
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dropdowns.forEach(d => d.classList.remove('active'));
+                    dropdown.classList.toggle('active');
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-dropdown')) {
+                    dropdowns.forEach(d => d.classList.remove('active'));
+                }
+            });
+
+            // Slideshow functionality
+            let currentIndex = 0;
+            const slides = document.querySelectorAll('.banner-img');
+            const totalSlides = slides.length;
+
+            function showSlide() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentIndex = (currentIndex + 1) % totalSlides;
+                slides[currentIndex].classList.add('active');
+            }
+
+            setInterval(showSlide, 3000); // Change slide every 3 seconds
+        });
+    </script>
+</body>
+</html>

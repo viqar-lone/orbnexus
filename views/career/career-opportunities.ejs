@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Opportunities - Orb Nexus</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery for slide-down effect -->
+    <style>
+        .terms-container {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .terms-box {
+            display: none;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .read-terms {
+            color: #007BFF;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .read-terms:hover {
+            color: #0056b3;
+        }
+        .apply-btn {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .apply-btn.active {
+            pointer-events: auto;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Career Opportunities</h1>
+    </header>
+
+    <!-- Career Options -->
+    <div class="career-container">
+        <div class="career-box">
+            <img src="/icons/business-icon.png" alt="Business Icon">
+            <h3>Register Your Business</h3>
+            <a href="/careers/register-business" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="career-box">
+            <img src="/icons/fulltime-icon.png" alt="Full-time Icon">
+            <h3>Full-time Staff</h3>
+            <a href="/careers/full-time-job" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="career-box">
+            <img src="/icons/parttime-icon.png" alt="Part-time Icon">
+            <h3>Part-time Work</h3>
+            <a href="/careers/part-time-job" class="apply-btn">Apply Now</a>
+        </div>
+
+        <div class="career-box">
+            <img src="/icons/workanywhere-icon.png" alt="Work from Anywhere Icon">
+            <h3>Work from Anywhere</h3>
+            <a href="/careers/work-from-home" class="apply-btn">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Section -->
+    <div class="terms-container">
+        <p><span class="read-terms">Read Terms & Conditions</span></p>
+        <div class="terms-box" id="termsBox">
+            <p>By applying, you agree to our company’s terms, including adherence to professional ethics, timely responses, and compliance with our operational policies.</p>
+            <p>Employment may be terminated by the company at any time without prior notice.</p>
+            <p>Employees and business partners are responsible for ensuring their own safety.</p>
+            <p><strong>Accept these terms to proceed.</strong></p>
+            <label>
+                <input type="checkbox" id="acceptTerms"> I Accept Terms & Conditions
+            </label>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".read-terms").click(function () {
+                $("#termsBox").slideToggle("slow");
+            });
+
+            $("#acceptTerms").change(function () {
+                if ($(this).is(":checked")) {
+                    $(".apply-btn").addClass("active");
+                } else {
+                    $(".apply-btn").removeClass("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

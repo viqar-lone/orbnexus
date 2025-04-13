@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Your Business - Orb Nexus</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="Orb Nexus Logo" class="logo-img">
+            <h1>Register Your Business</h1>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+            <a href="/gallery">Gallery</a>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>Business Registration Form</h2>
+        <form action="/careers/register-business" method="POST" enctype="multipart/form-data">
+            <label for="businessName">Business Name:</label>
+            <input type="text" id="businessName" name="businessName" required>
+
+            <label for="partyName">Party Name:</label>
+            <input type="text" id="partyName" name="partyName" required>
+
+            <label for="businessLocation">Business Location:</label>
+            <input type="text" id="businessLocation" name="businessLocation" required>
+
+            <label for="businessType">Business Type:</label>
+            <input type="text" id="businessType" name="businessType" required>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="businessImages">Upload Business Images (Max 20):</label>
+            <input type="file" id="businessImages" name="businessImages" accept="image/*" multiple>
+
+            <label for="businessVideos">Upload Business Videos (Max 10):</label>
+            <input type="file" id="businessVideos" name="businessVideos" accept="video/*" multiple>
+
+            <label for="resume">Upload Resume (Optional - PDF Only):</label>
+            <input type="file" id="resume" name="res

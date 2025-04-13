@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Terms and Conditions</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your main stylesheet -->
+    <script>
+        function proceedToForm() {
+            // Get selected career option from localStorage
+            let selectedCareer = localStorage.getItem("selectedCareer");
+
+            // Redirect to the correct application form
+            if (selectedCareer === "register-business") {
+                window.location.href = "/careers/register-business-form";
+            } else {
+                window.location.href = "/careers/job-application-form";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/path/to/your/logo.png" alt="Logo" class="logo-img">
+            <span>Orb Nexus</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <a href="/careers" class="active">Careers</a>
+        </nav>
+    </header>
+
+    <section class="terms-container">
+        <h1 class="careers-heading">Careers - Terms and Conditions</h1>
+        <div class="careers-content">
+            <p>Before proceeding with your application, please read and accept the following terms and conditions:</p>
+            <ul>
+                <li>The company reserves the right to terminate employment at any time without notice.</li>
+                <li>Employees must submit a termination notice both offline and online.</li>
+                <li>Employee safety is the employee's responsibility.</li>
+                <!-- Add more terms and conditions here -->
+            </ul>
+            <p>By accepting, you agree to comply with the company’s policies and terms.</p>
+
+            <div class="apply-btn-container">
+                <button class="apply-btn" onclick="proceedToForm()">Proceed Accepting the Terms and Conditions</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Orb Nexus. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
