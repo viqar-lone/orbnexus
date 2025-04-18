@@ -118,7 +118,9 @@
         </div>
 
         <div class="social-icons">
-            <img src="/images/instagram.png" alt="Instagram" class="icon">
+            <a href="https://www.instagram.com/mushraf_eventplanner?igsh=c2kzcm5lNTVmOXZy" target="_blank">
+                <img src="/images/instagram.png" alt="Instagram" class="icon">
+            </a>
             <img src="/images/facebook.png" alt="Facebook" class="icon">
             <img src="/images/youtube.png" alt="YouTube" class="icon">
         </div>
@@ -128,7 +130,9 @@
         </div>
 
         <div class="whatsapp-icon">
-            <img src="/images/whatsapp.png" alt="WhatsApp" class="whatsapp-img">
+            <a href="https://wa.me/916005753920" target="_blank">
+                <img src="/images/whatsapp.png" alt="WhatsApp" class="whatsapp-img">
+            </a>
         </div>
     </section>
 
@@ -163,6 +167,24 @@
 
             setInterval(showSlide, 3000); // Change slide every 3 seconds
         });
+    </script>
+
+    <!-- Firebase SDK Initialization -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC367XzCq3kRvDXchFbUXhMYCiwoVvm6Vs",
+            authDomain: "orb-nexus.firebaseapp.com",
+            projectId: "orb-nexus",
+            storageBucket: "orb-nexus.firebasestorage.app",
+            messagingSenderId: "116591897182",
+            appId: "1:116591897182:web:d1f243eefb0de3145c22cf"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
     </script>
 </body>
 </html>

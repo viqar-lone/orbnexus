@@ -142,6 +142,9 @@
         <input type="file" id="resume" name="resume" accept=".pdf">
         <div class="preview-container" id="resumePreview"></div>
 
+        <!-- Hidden field for career option -->
+        <input type="hidden" name="careerOption" value="Registered Business">
+
         <div class="terms-container">
             <input type="checkbox" id="termsCheckbox" onclick="showTermsModal()">
             <label for="termsCheckbox">I agree to the <span style="color: #00f; cursor: pointer;" onclick="showTermsModal()">Terms and Conditions</span></label>
@@ -151,6 +154,7 @@
     </form>
 </div>
 
+<!-- Terms Modal -->
 <div id="termsModal" class="modal">
     <div class="modal-content">
         <h3>Terms and Conditions</h3>
@@ -169,6 +173,7 @@
 </div>
 
 <script>
+    // Terms and Conditions Modal Script
     function showTermsModal() {
         document.getElementById("termsModal").style.display = "flex";
     }
@@ -185,6 +190,7 @@
         document.getElementById("submitBtn").disabled = true;
     }
 
+    // File Preview
     function previewFiles(input, previewContainer) {
         previewContainer.innerHTML = "";
         Array.from(input.files).forEach(file => {
